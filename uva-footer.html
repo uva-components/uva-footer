@@ -1,0 +1,45 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+
+<!--
+`uva-footer`
+A footer element for UVA web sites/apps
+
+@demo demo/index.html
+-->
+
+<dom-module id="uva-footer">
+  <template>
+    <style is="custom-style">
+      :host {
+        display: block;
+        width: 100%;
+        height: 185px;
+        padding-top: 50px;
+        padding-bottom: 20px;
+        max-height: 255px;
+        background-color: var(--color-primary-blue, #002f6c);
+        @apply(--layout-horizontal);
+      }
+      div {
+        @apply(--layout-flex);
+      }
+    </style>
+    <div>one</div><div>two</div><div>three</div><div>four</div>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'uva-footer',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'uva-footer',
+        },
+      },
+
+    });
+  </script>
+</dom-module>
