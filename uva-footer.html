@@ -20,6 +20,7 @@ A footer element for UVA web sites/apps
         max-height: 255px;
         background-color: var(--color-primary-blue, #002f6c);
         @apply(--layout-horizontal);
+        @apply(--uva-footer);
       }
       :host > div {
         @apply(--layout-flex);
@@ -34,11 +35,6 @@ A footer element for UVA web sites/apps
         @apply(--layout-flex);
       }
 
-      a:link {color: var(--color-primary-orange);}
-      a:visited {color: var(--color-secondary-orange);}
-      a:hover {color: var(--color-secondary-orange);}
-      a:active {color: var(--color-secondary-orange);}
-
       .middle {
         @apply(--layout-flex-2);
       }
@@ -51,54 +47,40 @@ A footer element for UVA web sites/apps
         color: var(--color-white);
         line-height: 20px;
       }
-      .info > address, .info > div {
+      .info > div {
         @apply(--layout-flex);
-        font-style: normal;
       }
+
       .copyright {
         color: var(--color-light-blue);
         font-family: var(--font-primary);
         font-weight: var(--font-weight-medium);
         font-size: 14px;
       }
-      uva-icon-link {
-        color: var(--color-white);
-        height: 20px;
-        margin-bottom: 14px;
-        --uva-icon-link: {
-          font-family: var(--font-primary);
-          font-weight: var(--font-weight-demi);
-        }
+
+      .middle, .end {
+        @apply(--uva-footer-columns);
       }
-
-
     </style>
     <div id="logo-container">
-      <link rel="import" href="../uva-centered-logo/uva-centered-logo.html">
-      <a href="http://www.virginia.edu"><uva-centered-logo></uva-centered-logo></a>
+      <template is="dom-if" if="[[!logoOverride]]">
+        <link rel="import" href="../uva-centered-logo/uva-centered-logo.html">
+        <a href="http://www.virginia.edu"><uva-centered-logo></uva-centered-logo></a>
+      </template>
+      <template is="dom-if" if="[[logoOverride]]">
+        <content select=".logo"></content>
+      </template>
     </div>
     <div class="middle">
       <div class="info">
-        <address>
-          208 Minor Hall<br>
-          P.O. Box 400165<br>
-          Charlottesville, VA 22904-4220
-        </address>
-        <div>
-          <strong>PHONE</strong> 434-982-3010<br>
-          <strong>FAX</strong> 434-982-3011<br>
-          <strong>EMAIL</strong> <a href="mailto:foo@example.com">foo@example.com</a>
-        </div>
+        <div><content select=".column-1"></content></div>
+        <div><content select=".column-2"></content></div>
       </div>
-      <div class="copyright">© 2016 By the Rector and Visitors of the University of Virginia</div>
+      <template is="dom-if" if="[[!dropCopyright]]">
+        <div class="copyright">© 2016 By the Rector and Visitors of the University of Virginia</div>
+      </template>
     </div>
-    <div>
-      <link rel="import" href="../uva-icon-link/uva-icon-link.html">
-      <uva-icon-link href="https://www.youtube.com/uva" icon="youtube-play" alt="UVA YouTube">YouTube</uva-icon-link>
-      <uva-icon-link href="https://twitter.com/UVA" icon="twitter" alt="UVA Twitter">Twitter</uva-icon-link>
-      <uva-icon-link href="https://www.facebook.com/UniversityofVirginia" icon="facebook-official" alt="UVA Facebook">Facebook</uva-icon-link>
-      <uva-icon-link href="https://www.snapchat.com/add/UnivofVirginia" icon="snapchat-ghost" alt="UVA Snapchat">Snapchat</uva-icon-link>
-    </div>
+    <div class="end"><content select=".column-3"></content></div>
   </template>
 
   <script>
@@ -107,10 +89,14 @@ A footer element for UVA web sites/apps
       is: 'uva-footer',
 
       properties: {
-        prop1: {
-          type: String,
-          value: 'uva-footer',
+        logoOverride: {
+          type: Boolean,
+          value: false,
         },
+        dropCopyright: {
+          type: Boolean,
+          value: false
+        }
       },
 
     });
