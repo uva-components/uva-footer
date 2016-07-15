@@ -24,17 +24,36 @@ A footer element for UVA web sites/apps
       :host > div {
         @apply(--layout-flex);
         @apply(--layout-vertical);
+        @apply(--layout-start);
+      }
+      #logo-container {
         @apply(--layout-center);
       }
       uva-centered-logo {
         width: 180px;
         @apply(--layout-flex);
       }
+
+      a:link {color: var(--color-primary-orange);}
+      a:visited {color: var(--color-secondary-orange);}
+      a:hover {color: var(--color-secondary-orange);}
+      a:active {color: var(--color-secondary-orange);}
+
       .middle {
         @apply(--layout-flex-2);
       }
       .info {
+        width: 100%;
         @apply(--layout-flex);
+        @apply(--layout-horizontal);
+        font-family: var(--font-primary);
+        font-weight: var(--font-weight-medium);
+        color: var(--color-white);
+        line-height: 20px;
+      }
+      .info > address, .info > div {
+        @apply(--layout-flex);
+        font-style: normal;
       }
       .copyright {
         color: var(--color-light-blue);
@@ -51,15 +70,25 @@ A footer element for UVA web sites/apps
           font-weight: var(--font-weight-demi);
         }
       }
+
+
     </style>
-    <div>
+    <div id="logo-container">
       <link rel="import" href="../uva-centered-logo/uva-centered-logo.html">
       <a href="http://www.virginia.edu"><uva-centered-logo></uva-centered-logo></a>
     </div>
     <div class="middle">
       <div class="info">
-        <address></address>
-        <div></div>
+        <address>
+          208 Minor Hall<br>
+          P.O. Box 400165<br>
+          Charlottesville, VA 22904-4220
+        </address>
+        <div>
+          <strong>PHONE</strong> 434-982-3010<br>
+          <strong>FAX</strong> 434-982-3011<br>
+          <strong>EMAIL</strong> <a href="mailto:foo@example.com">foo@example.com</a>
+        </div>
       </div>
       <div class="copyright">© 2016 By the Rector and Visitors of the University of Virginia</div>
     </div>
