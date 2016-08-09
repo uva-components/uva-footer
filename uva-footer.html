@@ -19,7 +19,7 @@ A footer element for UVA web sites/apps
         padding-top: 50px;
         padding-bottom: 20px;
         max-height: 255px;
-        background-color: var(--color-primary-blue, #002f6c);
+        background-color: var(currentcolor, --color-primary-blue, #002f6c);
         @apply(--layout-horizontal);
         @apply(--uva-footer);
       }
@@ -39,7 +39,7 @@ A footer element for UVA web sites/apps
       .middle {
         @apply(--layout-flex-2);
       }
-      .info {
+      .info, .end {
         width: 100%;
         @apply(--layout-flex);
         @apply(--layout-horizontal);
