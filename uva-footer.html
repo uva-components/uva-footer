@@ -45,14 +45,15 @@ A footer element for UVA web sites/apps
         font-size: 20px;
         padding-bottom: 20px;
       }
-
+      .columns {
+        @apply(--uva-footer-columns);
+      }
 
       /* desktop */
       @media (min-width: 993px) {
         :host {
           padding: 50px 0 20px 0;
           height: 185px;
-          max-height: 255px;
         }
         #top {
           @apply(--layout-horizontal);
@@ -79,9 +80,7 @@ A footer element for UVA web sites/apps
       @media (min-width: 601px) and (max-width: 992px) {
         :host {
           padding: 20px 15px 50px 15px;
-          background-color: orange !important;
-          height: 185px;
-          max-height: 255px;
+          height: var(--uva-footer-tablet-height, 185px) !important;
         }
         #top {
           @apply(--layout-horizontal);
@@ -89,7 +88,7 @@ A footer element for UVA web sites/apps
         #link-container {
           @apply(--layout-flex-2);
           @apply(--layout-vertical);
-          height: 175px;
+          height: 100%;
         }
         #center {
           @apply(--layout-flex-2);
@@ -97,9 +96,6 @@ A footer element for UVA web sites/apps
         }
         #end, #center > div {
           @apply(--layout-flex);
-        }
-        #end ::content div {
-          @apply(--layout-horizontal);
         }
         uva-centered-logo {
           width: 140px;
@@ -112,9 +108,7 @@ A footer element for UVA web sites/apps
       @media (max-width: 600px) {
         :host {
           padding: 30px;
-          background-color: red !important;
-          height: 445px;
-          max-height: 600px;
+          height: var(--uva-footer-mobile-height, 445px) !important;
         }
         #top {
           @apply(--layout-vertical);
@@ -131,9 +125,6 @@ A footer element for UVA web sites/apps
           text-align: center;
           padding-bottom: 30px;
         }
-        #end ::content div {
-          @apply(--layout-horizontal);
-        }
         uva-centered-logo {
           width: 140px;
         }
@@ -146,20 +137,20 @@ A footer element for UVA web sites/apps
 
     <div id="top">
       <div id="logo-container">
-        <template is="dom-if" if="[[!logoOverride]]">
+        <template is="dom-if" if="{{!logoOverride}}">
           <link rel="import" href="../uva-centered-logo/uva-centered-logo.html">
           <a href="http://www.virginia.edu"><uva-centered-logo></uva-centered-logo></a>
         </template>
-        <template is="dom-if" if="[[logoOverride]]">
+        <template is="dom-if" if="{{logoOverride}}">
           <content select=".logo"></content>
         </template>
       </div>
       <div id="link-container">
         <div id="center">
-          <div><content select=".column-1"></content></div>
-          <div><content select=".column-2"></content></div>
+          <div class="column"><content select=".column-1"></content></div>
+          <div class="column"><content select=".column-2"></content></div>
         </div>
-        <div id="end"><content select=".column-3"></content></div>
+        <div id="end" class="column"><content select=".column-3"></content></div>
       </div>
     </div>
     <div id="bottom">

@@ -15,7 +15,10 @@
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
     "web-component-tester": "^4.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
-    "uva-icon-link": "uva-components/uva-icon-link#master"
+    "uva-icon-link": "uva-components/uva-icon-link#master",
+    "uvalib-logos": "uvalib-components/uvalib-logos#master",
+    "uvalib-liame": "uvalib-components/uvalib-liame#master",
+    "uvalib-button": "uvalib-components/uvalib-button#master"
   },
   "resolutions": {
     "polymer": "^1.5.0",
