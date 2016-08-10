@@ -1,5 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../iron-media-query/iron-media-query.html">
 <link rel="import" href="../uva-brand-style/uva-brand-style.html">
 
 <!--
@@ -15,73 +16,157 @@ A footer element for UVA web sites/apps
       :host {
         display: block;
         width: 100%;
-        height: 185px;
-        padding-top: 50px;
-        padding-bottom: 20px;
-        max-height: 255px;
         background-color: var(currentcolor, --color-primary-blue);
-        @apply(--layout-horizontal);
+        color: var(currentcolor, --color-white);
+        font-family: var(--font-primary);
+        font-weight: var(--font-weight-medium);
+        @apply(--layout-vertical);
         @apply(--uva-footer);
       }
-      :host > div {
+      #top {
         @apply(--layout-flex);
-        @apply(--layout-vertical);
-        @apply(--layout-start);
+      }
+      .copyright {
+        text-align: center;
+        color: var(--color-light-blue);
+        font-size: 14px;
+        padding-top: 20px;
+      }
+      #bottom {
+        @apply(--layout-center-justified);
       }
       #logo-container {
+        min-height: 90px;
+        @apply(--layout-vertical);
         @apply(--layout-center);
       }
-      uva-centered-logo {
-        width: 180px;
-        @apply(--layout-flex);
-      }
-
-      .middle {
-        @apply(--layout-flex-2);
-      }
-      .info, .end {
-        width: 100%;
-        @apply(--layout-flex);
-        @apply(--layout-horizontal);
-        font-family: var(--font-primary);
-        font-weight: var(--font-weight-medium);
+      #link-container {
         color: var(--color-white);
-        line-height: 20px;
-      }
-      .info > div {
-        @apply(--layout-flex);
+        font-size: 20px;
+        padding-bottom: 20px;
       }
 
-      .copyright {
-        color: var(--color-light-blue);
-        font-family: var(--font-primary);
-        font-weight: var(--font-weight-medium);
-        font-size: 14px;
-      }
 
-      .middle, .end {
-        @apply(--uva-footer-columns);
+      /* desktop */
+      @media (min-width: 993px) {
+        :host {
+          padding: 50px 0 20px 0;
+          height: 185px;
+          max-height: 255px;
+        }
+        #top {
+          @apply(--layout-horizontal);
+        }
+        #link-container {
+          @apply(--layout-flex-3);
+          @apply(--layout-horizontal);
+        }
+        #center {
+          @apply(--layout-flex-2);
+          @apply(--layout-horizontal);
+        }
+        #end, #center > div {
+          @apply(--layout-flex);
+        }
+        uva-centered-logo {
+          width: 180px;
+        }
+        #logo-container {
+          @apply(--layout-flex);
+        }
+      }
+      /* tablet */
+      @media (min-width: 601px) and (max-width: 992px) {
+        :host {
+          padding: 20px 15px 50px 15px;
+          background-color: orange !important;
+          height: 185px;
+          max-height: 255px;
+        }
+        #top {
+          @apply(--layout-horizontal);
+        }
+        #link-container {
+          @apply(--layout-flex-2);
+          @apply(--layout-vertical);
+          height: 175px;
+        }
+        #center {
+          @apply(--layout-flex-2);
+          @apply(--layout-horizontal);
+        }
+        #end, #center > div {
+          @apply(--layout-flex);
+        }
+        #end ::content div {
+          @apply(--layout-horizontal);
+        }
+        uva-centered-logo {
+          width: 140px;
+        }
+        #logo-container {
+          @apply(--layout-flex);
+        }
+      }
+      /* mobile */
+      @media (max-width: 600px) {
+        :host {
+          padding: 30px;
+          background-color: red !important;
+          height: 445px;
+          max-height: 600px;
+        }
+        #top {
+          @apply(--layout-vertical);
+        }
+        #link-container {
+          padding-top: 30px;
+          @apply(--layout-vertical);
+        }
+        #center, {
+          @apply(--layout-vertical);
+        }
+        #center  div, #end {
+          @apply(--layout-center-justified);
+          text-align: center;
+          padding-bottom: 30px;
+        }
+        #end ::content div {
+          @apply(--layout-horizontal);
+        }
+        uva-centered-logo {
+          width: 140px;
+        }
       }
     </style>
-    <div id="logo-container">
-      <template is="dom-if" if="[[!logoOverride]]">
-        <link rel="import" href="../uva-centered-logo/uva-centered-logo.html">
-        <a href="http://www.virginia.edu"><uva-centered-logo></uva-centered-logo></a>
-      </template>
-      <template is="dom-if" if="[[logoOverride]]">
-        <content select=".logo"></content>
-      </template>
-    </div>
-    <div class="middle">
-      <div class="info">
-        <div><content select=".column-1"></content></div>
-        <div><content select=".column-2"></content></div>
+
+    <iron-media-query query="(max-width: 600px)" query-matches="{{smallScreen}}"></iron-media-query>
+    <iron-media-query query="(min-width: 601px) and (max-width: 992px)" query-matches="{{mediumScreen}}"></iron-media-query>
+    <iron-media-query query="(min-width: 993px)" query-matches="{{largeScreen}}"></iron-media-query>
+
+    <div id="top">
+      <div id="logo-container">
+        <template is="dom-if" if="[[!logoOverride]]">
+          <link rel="import" href="../uva-centered-logo/uva-centered-logo.html">
+          <a href="http://www.virginia.edu"><uva-centered-logo></uva-centered-logo></a>
+        </template>
+        <template is="dom-if" if="[[logoOverride]]">
+          <content select=".logo"></content>
+        </template>
       </div>
+      <div id="link-container">
+        <div id="center">
+          <div><content select=".column-1"></content></div>
+          <div><content select=".column-2"></content></div>
+        </div>
+        <div id="end"><content select=".column-3"></content></div>
+      </div>
+    </div>
+    <div id="bottom">
       <template is="dom-if" if="[[!dropCopyright]]">
         <div class="copyright">© 2016 By the Rector and Visitors of the University of Virginia</div>
       </template>
     </div>
-    <div class="end"><content select=".column-3"></content></div>
   </template>
 
   <script>
@@ -90,6 +175,24 @@ A footer element for UVA web sites/apps
       is: 'uva-footer',
 
       properties: {
+        smallScreen: {
+          type: Boolean,
+          notify: true,
+          value: false,
+          reflectToAttribute: true
+        },
+        mediumScreen: {
+          type: Boolean,
+          notify: true,
+          value: false,
+          reflectToAttribute: true
+        },
+        largeScreen: {
+          type: Boolean,
+          notify: true,
+          value: false,
+          reflectToAttribute: true
+        },
         logoOverride: {
           type: Boolean,
           value: false,
@@ -97,9 +200,8 @@ A footer element for UVA web sites/apps
         dropCopyright: {
           type: Boolean,
           value: false
-        }
-      },
-
+        },
+      }
     });
   </script>
 </dom-module>
