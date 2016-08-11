@@ -14,6 +14,7 @@ A footer element for UVA web sites/apps
   <template>
     <style is="custom-style">
       :host {
+        box-sizing: border-box;
         display: block;
         width: 100%;
         background-color: var(currentcolor, --color-primary-blue);
@@ -53,7 +54,7 @@ A footer element for UVA web sites/apps
       @media (min-width: 993px) {
         :host {
           padding: 50px 0 20px 0;
-          height: 185px;
+          height: 255px;
         }
         #top {
           @apply(--layout-horizontal);
@@ -80,7 +81,7 @@ A footer element for UVA web sites/apps
       @media (min-width: 601px) and (max-width: 992px) {
         :host {
           padding: 20px 15px 50px 15px;
-          height: var(--uva-footer-tablet-height, 185px) !important;
+          height: var(--uva-footer-tablet-height, 255px) !important;
         }
         #top {
           @apply(--layout-horizontal);
@@ -108,7 +109,7 @@ A footer element for UVA web sites/apps
       @media (max-width: 600px) {
         :host {
           padding: 30px;
-          height: var(--uva-footer-mobile-height, 445px) !important;
+          height: var(--uva-footer-mobile-height, 505px) !important;
         }
         #top {
           @apply(--layout-vertical);
