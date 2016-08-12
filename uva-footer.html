@@ -99,7 +99,7 @@ A footer element for UVA web sites/apps
           padding-left: 90px;
         }
         #top > .section {
-          @apply(--layout-flex-2)
+          @apply(--layout-flex-2);
           @apply(--layout-vertical);
         }
         .section > div {
@@ -134,6 +134,7 @@ A footer element for UVA web sites/apps
           @apply(--layout-vertical);
         }
         #top > .section {
+          @apply(--layout-flex-2);
           @apply(--layout-vertical);
         }
         .section > div {
@@ -143,19 +144,25 @@ A footer element for UVA web sites/apps
           text-align: center;
         }
         #link-container {
+          @apply(--layout-flex-2);
           padding-top: 30px;
           @apply(--layout-vertical);
         }
         #center, {
+          @apply(--layout-flex-2);
           @apply(--layout-vertical);
         }
         #center  div, #end {
+          @apply(--layout-flex);
           @apply(--layout-center-justified);
           text-align: center;
           padding-bottom: 30px;
         }
         uva-centered-logo {
           width: 140px;
+        }
+        #logo-container {
+          @apply(--layout-flex);
         }
       }
     </style>
