@@ -18,7 +18,8 @@
     "uva-icon-link": "uva-components/uva-icon-link#master",
     "uvalib-logos": "uvalib-components/uvalib-logos#master",
     "uvalib-liame": "uvalib-components/uvalib-liame#master",
-    "uvalib-button": "uvalib-components/uvalib-button#master"
+    "uvalib-button": "uvalib-components/uvalib-button#master",
+    "uvalib-social-links": "uvalib-components/uvalib-social-links#^0.0.1"
   },
   "resolutions": {
     "polymer": "^1.5.0",
