@@ -171,7 +171,7 @@ A footer element for UVA web sites/apps
     <iron-media-query query="(min-width: 601px) and (max-width: 992px)" query-matches="{{mediumScreen}}"></iron-media-query>
     <iron-media-query query="(min-width: 993px)" query-matches="{{largeScreen}}"></iron-media-query>
 
-    <div id="top" nologo$="{{dropLogo}}">
+    <div role="contentinfo" id="top" nologo$="{{dropLogo}}">
       <template is="dom-if" if="{{!dropLogo}}">
         <div id="logo-container">
           <template is="dom-if" if="{{!logoOverride}}">
