@@ -3,37 +3,11 @@
   "description": "A footer element for UVA web sites/apps",
   "main": "uva-footer.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.4.0",
-    "uva-brand-style": "uva-components/uva-brand-style#latest",
-    "uva-centered-logo": "uva-components/uva-logos#latest"
+    "uvalib-elements": "uvalib-components/uvalib-elements#master"
+    "uva-brand-style": "uva-components/uva-brand-style#master",
+    "uva-centered-logo": "uva-components/uva-logos#master"
   },
   "devDependencies": {
     "uva-icon-link": "uva-components/uva-icon-link#master",
-    "uvalib-elements": "uvalib-components/uvalib-elements#latest"
-  },
-  "resolutions": {
-    "polymer": "^1.9.0",
-    "uvalib-elements": "master",
-    "uvalib-alerts": "master",
-    "uvalib-analytics": "master",
-    "uvalib-button": "master",
-    "uvalib-footer": "master",
-    "uvalib-events-card": "master",
-    "uvalib-card": "master",
-    "uvalib-header": "master",
-    "uvalib-hours-card": "master",
-    "uvalib-helper-libs": "master",
-    "uvalib-logos": "master",
-    "uvalib-liame": "master",
-    "uvalib-news-section": "master",
-    "uvalib-models": "master",
-    "uvalib-nav": "master",
-    "uvalib-skip-nav": "master",
-    "uvalib-theme": "master",
-    "uvalib-search-box": "master",
-    "app-storage": "^0.10.0",
-    "iron-icons": "^1.2.1",
-    "uva-footer": "master",
-    "lodash": "^4.17.4"
   }
 }
