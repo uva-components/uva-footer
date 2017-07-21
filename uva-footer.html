@@ -174,10 +174,12 @@ A footer element for UVA web sites/apps
     <div role="contentinfo" id="top" nologo$="{{dropLogo}}">
       <template is="dom-if" if="{{!dropLogo}}">
         <div id="logo-container">
+<!--          
           <template is="dom-if" if="{{!logoOverride}}">
             <link rel="import" href="../uva-centered-logo/uva-centered-logo.html">
             <a href="http://www.virginia.edu"><uva-centered-logo></uva-centered-logo></a>
           </template>
+-->
           <template is="dom-if" if="{{logoOverride}}">
             <content select=".logo"></content>
           </template>
