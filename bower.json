@@ -11,6 +11,8 @@
     "uva-icon-link": "uva-components/uva-icon-link#master"
   },
   "resolutions": {
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "promise-polyfill": "^1.0.0",
+    "app-storage": "1 - 2"
   }
 }
